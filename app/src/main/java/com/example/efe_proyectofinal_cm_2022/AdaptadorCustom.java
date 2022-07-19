@@ -8,6 +8,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.efe_proyectofinal_cm_2022.clases.Headlines;
+import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
@@ -29,10 +30,17 @@ public class AdaptadorCustom extends RecyclerView.Adapter<CustomViewHolder> {
     @Override
     public void onBindViewHolder(@NonNull CustomViewHolder holder, int position) {
 
+        holder.text_tile.setText(headlines.get(position).getTitle());
+        holder.text_source.setText(headlines.get(position).getSource().getName());
+
+        if (headlines.get(position).getUrlToImage()!=null){
+            Picasso.get().load(headlines.get(position).getUrlToImage()).into(holder.img_headline);
+
+        }
     }
 
     @Override
     public int getItemCount() {
-        return 0;
+        return headlines.size();
     }
 }
