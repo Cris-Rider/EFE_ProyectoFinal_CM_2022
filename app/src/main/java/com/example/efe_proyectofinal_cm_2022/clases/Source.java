@@ -1,6 +1,8 @@
 package com.example.efe_proyectofinal_cm_2022.clases;
 
-public class Source {
+import java.io.Serializable;
+
+public class Source implements Serializable {
     String id="";
     String name="";
 

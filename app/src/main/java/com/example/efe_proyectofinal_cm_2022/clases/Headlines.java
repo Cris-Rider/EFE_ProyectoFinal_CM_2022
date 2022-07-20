@@ -1,6 +1,8 @@
 package com.example.efe_proyectofinal_cm_2022.clases;
 
-public class Headlines {
+import java.io.Serializable;
+
+public class Headlines implements Serializable {
     Source source= null;
     String author="";
     String title="";

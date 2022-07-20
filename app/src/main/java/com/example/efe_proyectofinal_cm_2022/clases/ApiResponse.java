@@ -1,8 +1,9 @@
 package com.example.efe_proyectofinal_cm_2022.clases;
 
+import java.io.Serializable;
 import java.util.List;
 
-public class ApiResponse {
+public class ApiResponse implements Serializable {
     String status;
     int totalResults;
     List<Headlines> articles;

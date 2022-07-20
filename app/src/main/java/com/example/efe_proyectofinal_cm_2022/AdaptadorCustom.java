@@ -2,6 +2,7 @@ package com.example.efe_proyectofinal_cm_2022;
 
 import android.content.Context;
 import android.view.LayoutInflater;
+import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
@@ -15,10 +16,12 @@ import java.util.List;
 public class AdaptadorCustom extends RecyclerView.Adapter<CustomViewHolder> {
     private Context context;
     private List<Headlines> headlines;
+    private SelectListener listener;
 
-    public AdaptadorCustom(Context context, List<Headlines> headlines) {
+    public AdaptadorCustom(Context context, List<Headlines> headlines, SelectListener listener) {
         this.context = context;
         this.headlines = headlines;
+        this.listener = listener;
     }
 
     @NonNull
@@ -37,6 +40,13 @@ public class AdaptadorCustom extends RecyclerView.Adapter<CustomViewHolder> {
             Picasso.get().load(headlines.get(position).getUrlToImage()).into(holder.img_headline);
 
         }
+
+        holder.cardView.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                listener.OnNewsClicked(headlines.get(position));
+            }
+        });
     }
 
     @Override

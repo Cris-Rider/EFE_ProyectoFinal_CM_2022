@@ -7,7 +7,5 @@ import java.util.List;
 public interface OnFetchDataListener<ApiResponse> {
     void onFetchData(List<Headlines> list, String message);
 
-    void onFetchData(List<Headlines> list, String message);
-
     void onError(String message);
 }
