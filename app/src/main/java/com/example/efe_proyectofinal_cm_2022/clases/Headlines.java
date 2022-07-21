@@ -1,6 +1,10 @@
 package com.example.efe_proyectofinal_cm_2022.clases;
 
+import android.graphics.drawable.Drawable;
+
+import java.io.InputStream;
 import java.io.Serializable;
+import java.net.URL;
 
 public class Headlines implements Serializable {
     Source source= null;
