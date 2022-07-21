@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "182452627883",
+    "project_id": "efe-proyectofinal-cm-2022",
+    "storage_bucket": "efe-proyectofinal-cm-2022.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:182452627883:android:1673fa0bc3fa5b5eec4aee",
+        "android_client_info": {
+          "package_name": "com.example.efe_proyectofinal_cm_2022"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "182452627883-0jh0cn78sgnasaaco18la2joa1r6f9gu.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCSqfB6byN1pN6_XyI0ciBrr7cuydmQe-s"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "182452627883-0jh0cn78sgnasaaco18la2joa1r6f9gu.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

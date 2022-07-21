@@ -12,10 +12,22 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.EFE_ProyectoFinal_CM_2022">
         <activity
-            android:name=".DetailsActivity"
+            android:name=".IntegrantesActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ForgotPasswordActivity"
+            android:exported="false" />
+        <activity
+            android:name=".RegisterActivity"
             android:exported="false" />
         <activity
             android:name=".MainActivity"
+            android:exported="false" />
+        <activity
+            android:name=".DetailsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".LoginActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

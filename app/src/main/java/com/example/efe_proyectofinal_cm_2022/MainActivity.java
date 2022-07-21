@@ -8,12 +8,16 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
 import com.example.efe_proyectofinal_cm_2022.clases.ApiResponse;
 import com.example.efe_proyectofinal_cm_2022.clases.Headlines;
+import com.google.firebase.auth.FirebaseAuth;
 
 import java.util.List;
 
@@ -23,7 +27,7 @@ public class MainActivity extends AppCompatActivity implements SelectListener, V
     ProgressDialog dialog;
     Button b1,b2,b3,b4,b5,b6,b7;
     SearchView searchView;
-
+    FirebaseAuth mAuth;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -111,5 +115,40 @@ public class MainActivity extends AppCompatActivity implements SelectListener, V
         dialog.show();
         RequestManager manager = new RequestManager(this);
         manager.getNewsHeadlines(listener, category, null);
+    }
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu_main, menu);
+        return true;
+    }
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        mAuth = FirebaseAuth.getInstance();
+        switch (item.getItemId()) {
+            case R.id.logout:
+                mAuth.signOut();
+                signOutUser();
+                return true;
+            case R.id.btintegrantes:
+                Intent mainActivity1 = new Intent(MainActivity.this, IntegrantesActivity.class);
+                startActivity(mainActivity1);
+                finish();
+                return true;
+            case R.id.bthome:
+                Intent mainActivity2 = new Intent(MainActivity.this, MainActivity.class);
+                startActivity(mainActivity2);
+                finish();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
+
+    private void signOutUser() {
+        Intent mainActivity = new Intent(MainActivity.this, LoginActivity.class);
+        mainActivity.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        startActivity(mainActivity);
+        finish();
     }
 }
