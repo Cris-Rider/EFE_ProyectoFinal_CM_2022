@@ -13,6 +13,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import com.example.efe_proyectofinal_cm_2022.clases.ApiResponse;
@@ -32,13 +33,15 @@ public class MainActivity extends AppCompatActivity implements SelectListener, V
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        LinearLayout one = (LinearLayout) findViewById(R.id.carrusel);
+        one.setVisibility(View.GONE);
 
         searchView = findViewById(R.id.search_view);
 
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String query) {
-                dialog.setTitle("Fetching news articles of " + query);
+                dialog.setTitle("Obteniendo noticias de" + query);
                 dialog.show();
                 RequestManager manager = new RequestManager(MainActivity.this);
                 manager.getNewsHeadlines(listener, "general", query);
@@ -53,7 +56,7 @@ public class MainActivity extends AppCompatActivity implements SelectListener, V
         });
 
         dialog = new ProgressDialog(this);
-        dialog.setTitle("Fetching news articles..");
+        dialog.setTitle("Obteniendo nuevos articulos..");
         dialog.show();
 
         b1 = findViewById(R.id.btn_1);
@@ -76,11 +79,11 @@ public class MainActivity extends AppCompatActivity implements SelectListener, V
         manager.getNewsHeadlines(listener, "general", null);
     }
 
-    private final OnFetchDataListener<ApiResponse> listener =new OnFetchDataListener<ApiResponse>(){
+     private final OnFetchDataListener<ApiResponse> listener =new OnFetchDataListener<ApiResponse>(){
         @Override
         public void onFetchData(List<Headlines> list, String message){
             if(list.isEmpty()){
-                Toast.makeText(MainActivity.this, "No data found",Toast.LENGTH_SHORT).show();
+                Toast.makeText(MainActivity.this, "No hay información encontrada",Toast.LENGTH_SHORT).show();
             }
             else {
                 showNews(list);
@@ -89,7 +92,7 @@ public class MainActivity extends AppCompatActivity implements SelectListener, V
         }
         @Override
         public void onError(String message){
-            Toast.makeText(MainActivity.this, "An error ocurred!!!",Toast.LENGTH_SHORT).show();
+            Toast.makeText(MainActivity.this, "Un errror ha ocurrido:(!!!",Toast.LENGTH_SHORT).show();
         }
     };
 
@@ -111,7 +114,7 @@ public class MainActivity extends AppCompatActivity implements SelectListener, V
     public void onClick(View v) {
         Button button = (Button) v;
         String category = button.getText().toString();
-        dialog.setTitle("Fetching news articles of" + category);
+        dialog.setTitle("Obteniendo articulos de" + category);
         dialog.show();
         RequestManager manager = new RequestManager(this);
         manager.getNewsHeadlines(listener, category, null);

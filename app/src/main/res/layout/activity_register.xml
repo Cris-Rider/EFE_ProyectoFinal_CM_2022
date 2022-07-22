@@ -62,9 +62,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
-                android:hint="Contraseña"
+                android:hint="Contraseña (min 6 carácteres)"
                 android:inputType="textPassword"
                 android:textColorHighlight="#673AB7"
+                android:minLength="6"
                 android:textColorLink="#9C27B0" />
 
             <Space

@@ -23,6 +23,9 @@ public class DetailsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_details);
 
+        getSupportActionBar().setDisplayShowTitleEnabled(false);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
         txt_title = findViewById(R.id.text_detail_title);
         txt_author = findViewById(R.id.text_detail_author);
         txt_time = findViewById(R.id.text_detail_time);

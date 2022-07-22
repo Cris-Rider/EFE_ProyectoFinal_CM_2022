@@ -26,6 +26,8 @@ public class ForgotPasswordActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_forgot_password);
 
+        getSupportActionBar().setTitle("¿Olvidaste tu contraseña?");
+
         btn_recuperar=findViewById(R.id.btn_recuperar);
         correo_rec=findViewById(R.id.correo);
         btn_recuperar.setOnClickListener(new View.OnClickListener() {

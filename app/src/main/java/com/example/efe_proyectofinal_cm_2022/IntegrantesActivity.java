@@ -16,6 +16,7 @@ public class IntegrantesActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getSupportActionBar().setTitle("INTEGRANTES");
         setContentView(R.layout.activity_integrantes);
     }
     @Override
