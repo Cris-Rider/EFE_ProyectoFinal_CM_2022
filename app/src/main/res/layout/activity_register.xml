@@ -65,7 +65,6 @@
                 android:hint="Contraseña (min 6 carácteres)"
                 android:inputType="textPassword"
                 android:textColorHighlight="#673AB7"
-                android:minLength="6"
                 android:textColorLink="#9C27B0" />
 
             <Space
